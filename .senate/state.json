@@ -1,5 +1,5 @@
 {
-  "phase": "ANALYZED",
+  "phase": "BUILDING",
   "backend": "real",
   "repo_name": "ttt-demo-2",
   "repo_slug": "nvdtf/ttt-demo-2",
@@ -448,6 +448,12 @@
       "to": "ANALYZED",
       "at": "2026-06-10T23:40:38.250329Z",
       "note": "analyze passed"
+    },
+    {
+      "from": "ANALYZED",
+      "to": "BUILDING",
+      "at": "2026-06-10T23:40:38.309013Z",
+      "note": "dispatch started"
     }
   ]
 }
