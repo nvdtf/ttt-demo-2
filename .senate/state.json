@@ -1,5 +1,5 @@
 {
-  "phase": "INTERROGATED",
+  "phase": "VOTED",
   "backend": "real",
   "repo_name": "ttt-demo-2",
   "repo_slug": "nvdtf/ttt-demo-2",
@@ -162,8 +162,171 @@
       "defer_to_probe": true
     }
   ],
+  "dim_tallies": [
+    {
+      "dimension": "D1",
+      "title": "File Structure",
+      "stakes": "HIGH",
+      "winner": "a",
+      "winner_label": "Single .html file with inline CSS and JS",
+      "weighted_pct": 100,
+      "status": "decided",
+      "by_choice": {
+        "a": 100
+      },
+      "votes": {
+        "alice": "a",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D2",
+      "title": "Mark Rendering",
+      "stakes": "MED",
+      "winner": "a",
+      "winner_label": "Plain text characters styled with CSS",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 50,
+        "b": 50
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D3",
+      "title": "Win Highlight Style",
+      "stakes": "MED",
+      "winner": "a",
+      "winner_label": "Background color change on winning cells",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 50,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D4",
+      "title": "Board Responsiveness Strategy",
+      "stakes": "MED",
+      "winner": "b",
+      "winner_label": "Viewport-relative (vmin-based), capped at max size",
+      "weighted_pct": 70,
+      "status": "decided",
+      "by_choice": {
+        "a": 30,
+        "b": 70
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D5",
+      "title": "Cell Hover Feedback",
+      "stakes": "LOW",
+      "winner": "c",
+      "winner_label": "Ghost preview of current player mark on hover",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 30,
+        "b": 20,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D6",
+      "title": "Color Palette and Visual Tone",
+      "stakes": "LOW",
+      "winner": "a",
+      "winner_label": "Monochrome — black, white, gray",
+      "weighted_pct": 50,
+      "status": "deferred",
+      "by_choice": {
+        "a": 50,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D7",
+      "title": "Status Message Placement",
+      "stakes": "LOW",
+      "winner": "a",
+      "winner_label": "Above the board (status → board → button)",
+      "weighted_pct": 50,
+      "status": "deferred",
+      "by_choice": {
+        "a": 50,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    }
+  ],
   "delta_loops": 0,
-  "sessions": 3,
+  "sessions": 6,
   "history": [
     {
       "from": "IDLE",
@@ -176,6 +339,12 @@
       "to": "INTERROGATED",
       "at": "2026-06-10T23:23:47.199957Z",
       "note": "questionnaire #3 (7 dims), feature PR #2"
+    },
+    {
+      "from": "INTERROGATED",
+      "to": "VOTED",
+      "at": "2026-06-10T23:25:43.389431Z",
+      "note": "7 dims tallied, deferred: D2,D3,D5,D6,D7"
     }
   ]
 }
