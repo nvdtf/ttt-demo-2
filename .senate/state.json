@@ -1,19 +1,181 @@
 {
-  "phase": "IDEA",
+  "phase": "INTERROGATED",
   "backend": "real",
   "repo_name": "ttt-demo-2",
   "repo_slug": "nvdtf/ttt-demo-2",
   "speckit_version": "v0.10.1",
   "idea": "build tic-tac-toe",
   "idea_issue": 1,
+  "feature_branch": "001-tic-tac-toe",
+  "feature_dir": "specs/001-tic-tac-toe",
+  "feature_pr": 2,
+  "questionnaire_issue": 3,
+  "dimensions": [
+    {
+      "id": "D1",
+      "title": "File Structure",
+      "stakes": "HIGH",
+      "options": [
+        {
+          "key": "a",
+          "label": "Single .html file with inline CSS and JS"
+        },
+        {
+          "key": "b",
+          "label": "Separate index.html + style.css + game.js files"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "Option b may break SC-004 in Firefox/Safari when opened via file:// due to CORS restrictions",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D2",
+      "title": "Mark Rendering",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Plain text characters styled with CSS"
+        },
+        {
+          "key": "b",
+          "label": "SVG-drawn marks (lines and circle)"
+        },
+        {
+          "key": "c",
+          "label": "CSS-only shapes via pseudo-elements"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "Option b is ~3x implementation scope and adds SVG sizing complexity",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D3",
+      "title": "Win Highlight Style",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Background color change on winning cells"
+        },
+        {
+          "key": "b",
+          "label": "Strikethrough line across winning cells"
+        },
+        {
+          "key": "c",
+          "label": "Both background color and strikethrough line"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "Option b requires calculating line coordinates/angles for all 8 win patterns",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D4",
+      "title": "Board Responsiveness Strategy",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Fixed pixel size, centered"
+        },
+        {
+          "key": "b",
+          "label": "Viewport-relative (vmin-based), capped at max size"
+        },
+        {
+          "key": "c",
+          "label": "Percentage-based fluid grid"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D5",
+      "title": "Cell Hover Feedback",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "No hover effect"
+        },
+        {
+          "key": "b",
+          "label": "Subtle background highlight on empty cells"
+        },
+        {
+          "key": "c",
+          "label": "Ghost preview of current player mark on hover"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D6",
+      "title": "Color Palette and Visual Tone",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Monochrome — black, white, gray"
+        },
+        {
+          "key": "b",
+          "label": "Neutral base with one accent color for highlights"
+        },
+        {
+          "key": "c",
+          "label": "Bold dual-color — distinct hue per player"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "",
+      "defer_to_probe": true
+    },
+    {
+      "id": "D7",
+      "title": "Status Message Placement",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Above the board (status → board → button)"
+        },
+        {
+          "key": "b",
+          "label": "Below the board (board → status → button)"
+        },
+        {
+          "key": "c",
+          "label": "Above the board, button beside status on same line"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "",
+      "defer_to_probe": true
+    }
+  ],
   "delta_loops": 0,
-  "sessions": 2,
+  "sessions": 3,
   "history": [
     {
       "from": "IDLE",
       "to": "IDEA",
       "at": "2026-06-10T23:20:59.153861Z",
       "note": "idea issue #1"
+    },
+    {
+      "from": "IDEA",
+      "to": "INTERROGATED",
+      "at": "2026-06-10T23:23:47.199957Z",
+      "note": "questionnaire #3 (7 dims), feature PR #2"
     }
   ]
 }
