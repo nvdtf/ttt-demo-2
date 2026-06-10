@@ -30,7 +30,7 @@
 
 **CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T002 Define the `WINNING_COMBOS` constant (array of 8 index-triples per data-model.md) and game state variables (`board` as a 9-element array, `currentPlayer` as `'X'`/`'O'`, `gameOver` as boolean, `winner` as `'X'`/`'O'`/`null`, `winningCells` as array/null) in the `<script>` block of `index.html`
+- [x] T002 Define the `WINNING_COMBOS` constant (array of 8 index-triples per data-model.md) and game state variables (`board` as a 9-element array, `currentPlayer` as `'X'`/`'O'`, `gameOver` as boolean, `winner` as `'X'`/`'O'`/`null`, `winningCells` as array/null) in the `<script>` block of `index.html`
 - [ ] T003 Implement `initGame()` function that resets all state variables to their initial values (empty board, currentPlayer `'X'`, gameOver `false`, winner `null`, winningCells `null`) and calls `renderBoard()`, in the `<script>` block of `index.html`
 - [ ] T004 Implement `renderBoard()` function that creates or updates 9 cell elements in a grid container `<div>`, setting each cell's text content from the `board` array, and attach click handlers to each cell, in the `<script>` block of `index.html`
 - [ ] T005 Add base CSS in the `<style>` block of `index.html`: centered page layout (flexbox column, centered items), box-sizing border-box, font-family, and 3x3 grid layout for the board container using CSS Grid (`grid-template-columns: repeat(3, 1fr)`), with cell borders, square aspect ratio, cursor pointer, and font sizing for marks
