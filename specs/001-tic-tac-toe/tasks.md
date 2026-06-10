@@ -66,7 +66,7 @@
 ### Implementation for User Story 2
 
 - [x] T011 [US2] Add a `<button>` element with text "New Game" below the board in the HTML of `index.html`, and style it in the `<style>` block (margin, padding, font size, cursor pointer)
-- [ ] T012 [US2] Attach a click event listener on the "New Game" button that calls `initGame()` to reset state and re-render the board, in the `<script>` block of `index.html`
+- [x] T012 [US2] Attach a click event listener on the "New Game" button that calls `initGame()` to reset state and re-render the board, in the `<script>` block of `index.html`
 
 **Checkpoint**: Users can restart the game at any point without reloading the page. Reset completes within 1 second (SC-002).
 
