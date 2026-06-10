@@ -34,7 +34,7 @@
 - [x] T003 Implement `initGame()` function that resets all state variables to their initial values (empty board, currentPlayer `'X'`, gameOver `false`, winner `null`, winningCells `null`) and calls `renderBoard()`, in the `<script>` block of `index.html`
 - [x] T004 Implement `renderBoard()` function that creates or updates 9 cell elements in a grid container `<div>`, setting each cell's text content from the `board` array, and attach click handlers to each cell, in the `<script>` block of `index.html`
 - [x] T005 Add base CSS in the `<style>` block of `index.html`: centered page layout (flexbox column, centered items), box-sizing border-box, font-family, and 3x3 grid layout for the board container using CSS Grid (`grid-template-columns: repeat(3, 1fr)`), with cell borders, square aspect ratio, cursor pointer, and font sizing for marks
-- [ ] T006 Add a `DOMContentLoaded` event listener that calls `initGame()` to bootstrap the game on page load, in the `<script>` block of `index.html`
+- [x] T006 Add a `DOMContentLoaded` event listener that calls `initGame()` to bootstrap the game on page load, in the `<script>` block of `index.html`
 
 **Checkpoint**: At this point, opening `index.html` should show a 3x3 grid of empty cells. No game logic yet.
 
