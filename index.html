@@ -26,6 +26,15 @@
     let gameOver = false;
     let winner = null;
     let winningCells = null;
+
+    function initGame() {
+      board = ['', '', '', '', '', '', '', '', ''];
+      currentPlayer = 'X';
+      gameOver = false;
+      winner = null;
+      winningCells = null;
+      renderBoard();
+    }
   </script>
 </body>
 </html>
