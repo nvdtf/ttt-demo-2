@@ -20,7 +20,7 @@
 
 **Purpose**: Create the single HTML file with boilerplate structure
 
-- [ ] T001 Create `index.html` at the repository root with HTML5 doctype, `<html>`, `<head>` (with charset, viewport meta, title "Tic-Tac-Toe"), `<body>` containing a container `<div>`, an empty `<style>` block in `<head>`, and an empty `<script>` block before `</body>`
+- [x] T001 Create `index.html` at the repository root with HTML5 doctype, `<html>`, `<head>` (with charset, viewport meta, title "Tic-Tac-Toe"), `<body>` containing a container `<div>`, an empty `<style>` block in `<head>`, and an empty `<script>` block before `</body>`
 
 ---
 
