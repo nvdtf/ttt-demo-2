@@ -103,6 +103,15 @@
       }
     }
 
+    function checkDraw() {
+      if (gameOver) {
+        return;
+      }
+      if (board.every(function(cell) { return cell !== ''; })) {
+        gameOver = true;
+      }
+    }
+
     function initGame() {
       board = ['', '', '', '', '', '', '', '', ''];
       currentPlayer = 'X';
