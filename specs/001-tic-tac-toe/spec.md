@@ -63,8 +63,8 @@ Players can see whose turn it is, whether someone has won, and which cells forme
 
 ### Edge Cases
 
-- What happens when a player clicks on an already-occupied cell? The click is ignored; the turn does not change.
-- What happens when a player clicks on the board after the game has ended? The click is ignored; no marks are placed.
+- What happens when a player clicks on an already-occupied cell? See US3 acceptance scenario 4.
+- What happens when a player clicks on the board after the game has ended? See FR-008.
 - What happens if the browser window is resized? The game board remains usable and centered.
 
 ## Requirements *(mandatory)*
@@ -81,6 +81,9 @@ Players can see whose turn it is, whether someone has won, and which cells forme
 - **FR-008**: System MUST prevent further moves after a game has ended (win or draw) -- decided by agent @ 100%
 - **FR-009**: System MUST visually highlight the winning combination of cells when a player wins -- decided by agent @ 100%
 - **FR-010**: System MUST be a static page using vanilla JavaScript with no build step and no backend (per Constitution Principle IV) -- decided by constitution @ 100%
+- **FR-011**: The game MUST be delivered as a single .html file containing all markup, CSS, and JavaScript inline — no separate files -- decided by clarification-vote @ 100%
+- **FR-012**: The game board MUST use viewport-relative sizing (vmin-based units) for width and height, capped at a maximum pixel size of 500px, to ensure responsiveness across screen sizes -- decided by weighted-vote @ 70% + dissent @ 30%
+- **FR-013**: System MUST support keyboard navigation of the game board (cells reachable via Tab, activatable via Enter) -- decided by agent @ 100%
 
 ### Key Entities
 
@@ -107,15 +110,25 @@ Players can see whose turn it is, whether someone has won, and which cells forme
 - The game will be served as static files (HTML, CSS, vanilla JS) per Constitution Principle IV.
 - No user accounts, authentication, or data persistence is required.
 
+## Constitution Check
+
+*GATE: Must pass before implementation begins.*
+
+| Principle | Status | Notes |
+|-----------|--------|-------|
+| I. Human Spec Authority | PASS | Spec originated from human input ("build tic-tac-toe"); all requirements have provenance |
+| II. Escalation Discipline | PASS | No unresolved ambiguities or conflicts requiring escalation |
+| III. Deployable Probe First | PASS | US1 (Phase 3) produces a deployable probe — a playable game in a single HTML file |
+| IV. Static Vanilla Stack | PASS | Single HTML file, vanilla JS, no transpilers/bundlers/backend (FR-010, FR-011) |
+| V. Requirement Provenance | PASS | All FR-001 through FR-013 carry provenance with actor and weight summing to 100% |
+| VI. Spec-Bound Review | PASS | Review will cite spec requirements; style choices are worker's call |
+
+**Gate result**: ALL PASS — spec is implementation-ready.
+
 ## Clarifications
 
-- **File Structure** → Single .html file with inline CSS and JS (100% weighted, D1)
-- **Board Responsiveness Strategy** → Viewport-relative (vmin-based), capped at max size (70% weighted, D4)
-
-## Requirements
-
-- FR-011: The game MUST be delivered as a single .html file containing all markup, CSS, and JavaScript inline — no separate files. — *provenance: decided: 100% weighted (D1)*
-- FR-012: The game board MUST use viewport-relative sizing (vmin-based units) for width and height, capped at a maximum pixel size, to ensure responsiveness across screen sizes. — *provenance: decided: 70% weighted (D4)*
+- **File Structure** → Single .html file with inline CSS and JS (100% weighted, D1) → FR-011
+- **Board Responsiveness Strategy** → Viewport-relative (vmin-based), capped at max size of 500px (70% weighted, D4) → FR-012
 
 ## Deferred to Probe
 

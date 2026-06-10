@@ -24,7 +24,7 @@ A two-player tic-tac-toe game delivered as a single HTML file with inline CSS an
 
 **Performance Goals**: Instant interaction response (all logic client-side, no network calls)
 
-**Constraints**: Single `.html` file with inline CSS/JS (FR-011), no build step, no backend (FR-010), responsive down to 320px (SC-005), vmin-based sizing capped at max pixel size (FR-012)
+**Constraints**: Single `.html` file with inline CSS/JS (FR-011), no build step, no backend (FR-010), responsive down to 320px (SC-005), vmin-based sizing capped at 500px max (FR-012), keyboard-navigable grid (FR-013)
 
 **Scale/Scope**: Single browser tab, two human players on the same device, no networking
 
