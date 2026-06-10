@@ -36,10 +36,18 @@
       background: none;
       user-select: none;
     }
+
+    #new-game-btn {
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.5rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
   <div id="container"></div>
+  <button id="new-game-btn" type="button">New Game</button>
   <script>
     const WINNING_COMBOS = [
       [0, 1, 2], // top row
