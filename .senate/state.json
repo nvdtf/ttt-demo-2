@@ -1,5 +1,5 @@
 {
-  "phase": "VOTED",
+  "phase": "SPEC_PATCHED",
   "backend": "real",
   "repo_name": "ttt-demo-2",
   "repo_slug": "nvdtf/ttt-demo-2",
@@ -325,6 +325,85 @@
       }
     }
   ],
+  "aggregate": {
+    "results": [
+      {
+        "dimension": "D1",
+        "winner": "a",
+        "weighted_pct": 100,
+        "status": "decided"
+      },
+      {
+        "dimension": "D2",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D3",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D4",
+        "winner": "b",
+        "weighted_pct": 70,
+        "status": "decided"
+      },
+      {
+        "dimension": "D5",
+        "winner": "c",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D6",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "deferred"
+      },
+      {
+        "dimension": "D7",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "deferred"
+      }
+    ],
+    "clarifications": [
+      {
+        "question": "File Structure",
+        "answer": "Single .html file with inline CSS and JS",
+        "weighted_pct": 100,
+        "provenance": "D1"
+      },
+      {
+        "question": "Board Responsiveness Strategy",
+        "answer": "Viewport-relative (vmin-based), capped at max size",
+        "weighted_pct": 70,
+        "provenance": "D4"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "FR-011",
+        "text": "The game MUST be delivered as a single .html file containing all markup, CSS, and JavaScript inline — no separate files.",
+        "provenance": "decided: 100% weighted (D1)"
+      },
+      {
+        "id": "FR-012",
+        "text": "The game board MUST use viewport-relative sizing (vmin-based units) for width and height, capped at a maximum pixel size, to ensure responsiveness across screen sizes.",
+        "provenance": "decided: 70% weighted (D4)"
+      }
+    ],
+    "deferred": [
+      "D2",
+      "D3",
+      "D5",
+      "D6",
+      "D7"
+    ]
+  },
   "delta_loops": 0,
   "sessions": 7,
   "history": [
@@ -345,6 +424,12 @@
       "to": "VOTED",
       "at": "2026-06-10T23:25:43.389431Z",
       "note": "7 dims tallied, deferred: D2,D3,D5,D6,D7"
+    },
+    {
+      "from": "VOTED",
+      "to": "SPEC_PATCHED",
+      "at": "2026-06-10T23:26:04.43207Z",
+      "note": "2 clarifications, 2 requirements, deferred: D2,D3,D5,D6,D7"
     }
   ]
 }
