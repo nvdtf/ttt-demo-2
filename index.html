@@ -77,6 +77,19 @@
       }
     }
 
+    function handleCellClick(index) {
+      if (gameOver || board[index] !== '') {
+        return;
+      }
+      board[index] = currentPlayer;
+      checkWin();
+      checkDraw();
+      if (!gameOver) {
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      }
+      renderBoard();
+    }
+
     function initGame() {
       board = ['', '', '', '', '', '', '', '', ''];
       currentPlayer = 'X';
