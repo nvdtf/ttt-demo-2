@@ -106,3 +106,23 @@ Players can see whose turn it is, whether someone has won, and which cells forme
 - No sound effects or animations beyond the winning-cell highlight are required.
 - The game will be served as static files (HTML, CSS, vanilla JS) per Constitution Principle IV.
 - No user accounts, authentication, or data persistence is required.
+
+## Clarifications
+
+- **File Structure** → Single .html file with inline CSS and JS (100% weighted, D1)
+- **Board Responsiveness Strategy** → Viewport-relative (vmin-based), capped at max size (70% weighted, D4)
+
+## Requirements
+
+- FR-011: The game MUST be delivered as a single .html file containing all markup, CSS, and JavaScript inline — no separate files. — *provenance: decided: 100% weighted (D1)*
+- FR-012: The game board MUST use viewport-relative sizing (vmin-based units) for width and height, capped at a maximum pixel size, to ensure responsiveness across screen sizes. — *provenance: decided: 70% weighted (D4)*
+
+## Deferred to Probe
+
+These dimensions are **intentionally deferred**: the group reacts to the deployed probe instead of predicting from text.
+
+- D2 — Mark Rendering (a: Plain text characters styled with CSS · b: SVG-drawn marks (lines and circle) · c: CSS-only shapes via pseudo-elements)
+- D3 — Win Highlight Style (a: Background color change on winning cells · b: Strikethrough line across winning cells · c: Both background color and strikethrough line)
+- D5 — Cell Hover Feedback (a: No hover effect · b: Subtle background highlight on empty cells · c: Ghost preview of current player mark on hover)
+- D6 — Color Palette and Visual Tone (a: Monochrome — black, white, gray · b: Neutral base with one accent color for highlights · c: Bold dual-color — distinct hue per player)
+- D7 — Status Message Placement (a: Above the board (status → board → button) · b: Below the board (board → status → button) · c: Above the board, button beside status on same line)
