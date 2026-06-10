@@ -423,9 +423,18 @@
       "status": "merged",
       "review_cycles": 0,
       "worker_runs": 1
+    },
+    "T003": {
+      "id": "T003",
+      "issue": 8,
+      "pr": 9,
+      "branch": "task/T003",
+      "status": "in_review",
+      "review_cycles": 0,
+      "worker_runs": 1
     }
   },
-  "sessions": 19,
+  "sessions": 21,
   "history": [
     {
       "from": "IDLE",
