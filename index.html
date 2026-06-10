@@ -27,6 +27,25 @@
     let winner = null;
     let winningCells = null;
 
+    function renderBoard() {
+      let boardEl = document.getElementById('board');
+      if (!boardEl) {
+        boardEl = document.createElement('div');
+        boardEl.id = 'board';
+        document.getElementById('container').appendChild(boardEl);
+      }
+      boardEl.innerHTML = '';
+      for (let i = 0; i < 9; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.textContent = board[i];
+        cell.addEventListener('click', function() {
+          handleCellClick(i);
+        });
+        boardEl.appendChild(cell);
+      }
+    }
+
     function initGame() {
       board = ['', '', '', '', '', '', '', '', ''];
       currentPlayer = 'X';
