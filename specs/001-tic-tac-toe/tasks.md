@@ -48,7 +48,7 @@
 
 ### Implementation for User Story 1
 
-- [ ] T007 [US1] Implement `handleCellClick(index)` function that: (a) ignores clicks if `gameOver` is true (FR-008) or the cell is occupied (FR-003), (b) places `currentPlayer` mark in `board[index]`, (c) calls win/draw check functions, (d) toggles `currentPlayer` between `'X'` and `'O'` if game is not over, (e) calls `renderBoard()`, in the `<script>` block of `index.html`
+- [x] T007 [US1] Implement `handleCellClick(index)` function that: (a) ignores clicks if `gameOver` is true (FR-008) or the cell is occupied (FR-003), (b) places `currentPlayer` mark in `board[index]`, (c) calls win/draw check functions, (d) toggles `currentPlayer` between `'X'` and `'O'` if game is not over, (e) calls `renderBoard()`, in the `<script>` block of `index.html`
 - [ ] T008 [US1] Implement `checkWin()` function that iterates over `WINNING_COMBOS`, checks if all three cells in any combo match `currentPlayer`, and if so sets `gameOver = true`, `winner = currentPlayer`, and `winningCells` to the matching indices, in the `<script>` block of `index.html`
 - [ ] T009 [US1] Implement `checkDraw()` function that checks if all 9 cells are filled and `gameOver` is still false, and if so sets `gameOver = true` (winner remains null), in the `<script>` block of `index.html`
 - [ ] T010 [US1] Wire `handleCellClick` into the cell click handlers created by `renderBoard()`, passing the cell index, in the `<script>` block of `index.html`
