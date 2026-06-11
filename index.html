@@ -39,6 +39,15 @@
       border: 1px solid #333;
       background: none;
       user-select: none;
+      padding: 0;
+      font-family: inherit;
+      color: inherit;
+      outline: none;
+    }
+
+    .cell:focus-visible {
+      outline: 2px solid #4a90d9;
+      outline-offset: -2px;
     }
 
     #status {
@@ -100,7 +109,8 @@
         boardEl.classList.remove('game-over');
       }
       for (let i = 0; i < 9; i++) {
-        const cell = document.createElement('div');
+        const cell = document.createElement('button');
+        cell.type = 'button';
         cell.className = 'cell';
         if (board[i] === '') {
           cell.classList.add('empty');
@@ -109,6 +119,10 @@
           cell.classList.add('winning-cell');
         }
         cell.textContent = board[i];
+        const row = Math.floor(i / 3) + 1;
+        const col = (i % 3) + 1;
+        const mark = board[i] || 'empty';
+        cell.setAttribute('aria-label', 'Row ' + row + ' Column ' + col + ' ' + mark);
         cell.addEventListener('click', function() {
           handleCellClick(i);
         });
