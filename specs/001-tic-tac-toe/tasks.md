@@ -80,7 +80,7 @@
 
 ### Implementation for User Story 3
 
-- [ ] T013 [US3] Add a status display element (e.g., `<div id="status">`) above the board in the HTML of `index.html`, and style it in the `<style>` block (font size, margin, text alignment, min-height to prevent layout shift)
+- [x] T013 [US3] Add a status display element (e.g., `<div id="status">`) above the board in the HTML of `index.html`, and style it in the `<style>` block (font size, margin, text alignment, min-height to prevent layout shift)
 - [ ] T014 [US3] Implement `updateStatus()` function that sets the status element text to: "Player X wins!" or "Player O wins!" if there is a winner, "It's a draw!" if gameOver with no winner, or "Player X's turn" / "Player O's turn" during play — call it from `handleCellClick` and `initGame`, in the `<script>` block of `index.html`
 - [ ] T015 [US3] Add a CSS class `.winning-cell` with a distinct background color for winning cells in the `<style>` block, and apply it in `renderBoard()` to cells whose indices are in `winningCells` when a win has occurred, in `index.html`
 
