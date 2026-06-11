@@ -44,6 +44,10 @@
       min-height: 2rem;
     }
 
+    .winning-cell {
+      background-color: #a8d5a2;
+    }
+
     #new-game-btn {
       margin-top: 1.5rem;
       padding: 0.6rem 1.5rem;
@@ -85,6 +89,9 @@
       for (let i = 0; i < 9; i++) {
         const cell = document.createElement('div');
         cell.className = 'cell';
+        if (winningCells && winningCells.indexOf(i) !== -1) {
+          cell.classList.add('winning-cell');
+        }
         cell.textContent = board[i];
         cell.addEventListener('click', function() {
           handleCellClick(i);
