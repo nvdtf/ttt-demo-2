@@ -104,6 +104,7 @@
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
       }
       renderBoard();
+      updateStatus();
     }
 
     function checkWin() {
@@ -128,6 +129,17 @@
       }
     }
 
+    function updateStatus() {
+      var statusEl = document.getElementById('status');
+      if (winner) {
+        statusEl.textContent = 'Player ' + winner + ' wins!';
+      } else if (gameOver) {
+        statusEl.textContent = "It's a draw!";
+      } else {
+        statusEl.textContent = 'Player ' + currentPlayer + "'s turn";
+      }
+    }
+
     function initGame() {
       board = ['', '', '', '', '', '', '', '', ''];
       currentPlayer = 'X';
@@ -135,6 +147,7 @@
       winner = null;
       winningCells = null;
       renderBoard();
+      updateStatus();
     }
 
     document.getElementById('new-game-btn').addEventListener('click', initGame);
