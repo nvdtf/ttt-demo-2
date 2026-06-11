@@ -1,5 +1,5 @@
 {
-  "phase": "BUILT",
+  "phase": "PROBE_LIVE",
   "backend": "real",
   "repo_name": "ttt-demo-2",
   "repo_slug": "nvdtf/ttt-demo-2",
@@ -404,6 +404,8 @@
       "D7"
     ]
   },
+  "feedback_issue": 41,
+  "probe_url": "https://nvdtf.github.io/ttt-demo-2/",
   "delta_loops": 0,
   "tasks": {
     "T001": {
@@ -632,6 +634,12 @@
       "to": "BUILT",
       "at": "2026-06-11T00:08:42.85238Z",
       "note": "all tasks merged"
+    },
+    {
+      "from": "BUILT",
+      "to": "PROBE_LIVE",
+      "at": "2026-06-11T00:08:47.29938Z",
+      "note": "probe live at https://nvdtf.github.io/ttt-demo-2/, feedback issue #41"
     }
   ]
 }
