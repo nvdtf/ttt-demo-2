@@ -1,5 +1,5 @@
 {
-  "phase": "PROBE_LIVE",
+  "phase": "FEEDBACK",
   "backend": "real",
   "repo_name": "ttt-demo-2",
   "repo_slug": "nvdtf/ttt-demo-2",
@@ -204,8 +204,8 @@
       },
       "sources": {
         "alice": "proxy",
-        "bob": "proxy",
-        "carol": "proxy"
+        "bob": "recommendation",
+        "carol": "recommendation"
       }
     },
     {
@@ -227,8 +227,8 @@
       },
       "sources": {
         "alice": "proxy",
-        "bob": "proxy",
-        "carol": "proxy"
+        "bob": "recommendation",
+        "carol": "recommendation"
       }
     },
     {
@@ -258,8 +258,31 @@
       "dimension": "D5",
       "title": "Cell Hover Feedback",
       "stakes": "LOW",
+      "winner": "b",
+      "winner_label": "Subtle background highlight on empty cells",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "b": 50,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "b",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "recommendation",
+        "carol": "recommendation"
+      }
+    },
+    {
+      "dimension": "D6",
+      "title": "Color Palette and Visual Tone",
+      "stakes": "LOW",
       "winner": "c",
-      "winner_label": "Ghost preview of current player mark on hover",
+      "winner_label": "Bold dual-color — distinct hue per player",
       "weighted_pct": 50,
       "status": "conflict",
       "by_choice": {
@@ -275,30 +298,7 @@
       "sources": {
         "alice": "proxy",
         "bob": "proxy",
-        "carol": "proxy"
-      }
-    },
-    {
-      "dimension": "D6",
-      "title": "Color Palette and Visual Tone",
-      "stakes": "LOW",
-      "winner": "a",
-      "winner_label": "Monochrome — black, white, gray",
-      "weighted_pct": 50,
-      "status": "deferred",
-      "by_choice": {
-        "a": 50,
-        "c": 50
-      },
-      "votes": {
-        "alice": "c",
-        "bob": "a",
-        "carol": "a"
-      },
-      "sources": {
-        "alice": "proxy",
-        "bob": "proxy",
-        "carol": "proxy"
+        "carol": "recommendation"
       }
     },
     {
@@ -308,7 +308,7 @@
       "winner": "a",
       "winner_label": "Above the board (status → board → button)",
       "weighted_pct": 50,
-      "status": "deferred",
+      "status": "conflict",
       "by_choice": {
         "a": 50,
         "c": 50
@@ -320,8 +320,8 @@
       },
       "sources": {
         "alice": "proxy",
-        "bob": "proxy",
-        "carol": "proxy"
+        "bob": "recommendation",
+        "carol": "recommendation"
       }
     }
   ],
@@ -407,6 +407,49 @@
   "feedback_issue": 41,
   "probe_url": "https://nvdtf.github.io/ttt-demo-2/",
   "delta_loops": 0,
+  "delta_aggregate": {
+    "results": [
+      {
+        "dimension": "D2",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D3",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D5",
+        "winner": "b",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D6",
+        "winner": "c",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D7",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      }
+    ],
+    "clarifications": [],
+    "requirements": [],
+    "deferred": [
+      "D2",
+      "D3",
+      "D5",
+      "D6",
+      "D7"
+    ]
+  },
   "tasks": {
     "T001": {
       "id": "T001",
@@ -579,7 +622,7 @@
       "worker_runs": 1
     }
   },
-  "sessions": 52,
+  "sessions": 56,
   "history": [
     {
       "from": "IDLE",
@@ -640,6 +683,12 @@
       "to": "PROBE_LIVE",
       "at": "2026-06-11T00:08:47.29938Z",
       "note": "probe live at https://nvdtf.github.io/ttt-demo-2/, feedback issue #41"
+    },
+    {
+      "from": "PROBE_LIVE",
+      "to": "FEEDBACK",
+      "at": "2026-06-11T00:11:44.557703Z",
+      "note": "round 1: 0 delta requirements"
     }
   ]
 }
