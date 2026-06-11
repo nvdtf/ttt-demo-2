@@ -1,5 +1,5 @@
 {
-  "phase": "BUILDING",
+  "phase": "BUILT",
   "backend": "real",
   "repo_name": "ttt-demo-2",
   "repo_slug": "nvdtf/ttt-demo-2",
@@ -626,6 +626,12 @@
       "to": "BUILDING",
       "at": "2026-06-10T23:40:38.309013Z",
       "note": "dispatch started"
+    },
+    {
+      "from": "BUILDING",
+      "to": "BUILT",
+      "at": "2026-06-11T00:08:42.85238Z",
+      "note": "all tasks merged"
     }
   ]
 }
