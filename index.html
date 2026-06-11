@@ -52,6 +52,10 @@
       background-color: #a8d5a2;
     }
 
+    #board:not(.game-over) .cell.empty:hover {
+      background-color: #e8e8e8;
+    }
+
     #new-game-btn {
       margin-top: 1.5rem;
       padding: 0.6rem 1.5rem;
@@ -90,9 +94,17 @@
         document.getElementById('container').appendChild(boardEl);
       }
       boardEl.innerHTML = '';
+      if (gameOver) {
+        boardEl.classList.add('game-over');
+      } else {
+        boardEl.classList.remove('game-over');
+      }
       for (let i = 0; i < 9; i++) {
         const cell = document.createElement('div');
         cell.className = 'cell';
+        if (board[i] === '') {
+          cell.classList.add('empty');
+        }
         if (winningCells && winningCells.indexOf(i) !== -1) {
           cell.classList.add('winning-cell');
         }
