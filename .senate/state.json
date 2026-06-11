@@ -1,9 +1,631 @@
 {
-  "phase": "IDLE",
+  "phase": "BUILDING",
   "backend": "real",
   "repo_name": "ttt-demo-2",
   "repo_slug": "nvdtf/ttt-demo-2",
   "speckit_version": "v0.10.1",
+  "idea": "build tic-tac-toe",
+  "idea_issue": 1,
+  "feature_branch": "001-tic-tac-toe",
+  "feature_dir": "specs/001-tic-tac-toe",
+  "feature_pr": 2,
+  "questionnaire_issue": 3,
+  "dimensions": [
+    {
+      "id": "D1",
+      "title": "File Structure",
+      "stakes": "HIGH",
+      "options": [
+        {
+          "key": "a",
+          "label": "Single .html file with inline CSS and JS"
+        },
+        {
+          "key": "b",
+          "label": "Separate index.html + style.css + game.js files"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "Option b may break SC-004 in Firefox/Safari when opened via file:// due to CORS restrictions",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D2",
+      "title": "Mark Rendering",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Plain text characters styled with CSS"
+        },
+        {
+          "key": "b",
+          "label": "SVG-drawn marks (lines and circle)"
+        },
+        {
+          "key": "c",
+          "label": "CSS-only shapes via pseudo-elements"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "Option b is ~3x implementation scope and adds SVG sizing complexity",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D3",
+      "title": "Win Highlight Style",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Background color change on winning cells"
+        },
+        {
+          "key": "b",
+          "label": "Strikethrough line across winning cells"
+        },
+        {
+          "key": "c",
+          "label": "Both background color and strikethrough line"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "Option b requires calculating line coordinates/angles for all 8 win patterns",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D4",
+      "title": "Board Responsiveness Strategy",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Fixed pixel size, centered"
+        },
+        {
+          "key": "b",
+          "label": "Viewport-relative (vmin-based), capped at max size"
+        },
+        {
+          "key": "c",
+          "label": "Percentage-based fluid grid"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D5",
+      "title": "Cell Hover Feedback",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "No hover effect"
+        },
+        {
+          "key": "b",
+          "label": "Subtle background highlight on empty cells"
+        },
+        {
+          "key": "c",
+          "label": "Ghost preview of current player mark on hover"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D6",
+      "title": "Color Palette and Visual Tone",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Monochrome — black, white, gray"
+        },
+        {
+          "key": "b",
+          "label": "Neutral base with one accent color for highlights"
+        },
+        {
+          "key": "c",
+          "label": "Bold dual-color — distinct hue per player"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "",
+      "defer_to_probe": true
+    },
+    {
+      "id": "D7",
+      "title": "Status Message Placement",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Above the board (status → board → button)"
+        },
+        {
+          "key": "b",
+          "label": "Below the board (board → status → button)"
+        },
+        {
+          "key": "c",
+          "label": "Above the board, button beside status on same line"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "",
+      "defer_to_probe": true
+    }
+  ],
+  "dim_tallies": [
+    {
+      "dimension": "D1",
+      "title": "File Structure",
+      "stakes": "HIGH",
+      "winner": "a",
+      "winner_label": "Single .html file with inline CSS and JS",
+      "weighted_pct": 100,
+      "status": "decided",
+      "by_choice": {
+        "a": 100
+      },
+      "votes": {
+        "alice": "a",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D2",
+      "title": "Mark Rendering",
+      "stakes": "MED",
+      "winner": "a",
+      "winner_label": "Plain text characters styled with CSS",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 50,
+        "b": 50
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D3",
+      "title": "Win Highlight Style",
+      "stakes": "MED",
+      "winner": "a",
+      "winner_label": "Background color change on winning cells",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 50,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D4",
+      "title": "Board Responsiveness Strategy",
+      "stakes": "MED",
+      "winner": "b",
+      "winner_label": "Viewport-relative (vmin-based), capped at max size",
+      "weighted_pct": 70,
+      "status": "decided",
+      "by_choice": {
+        "a": 30,
+        "b": 70
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D5",
+      "title": "Cell Hover Feedback",
+      "stakes": "LOW",
+      "winner": "c",
+      "winner_label": "Ghost preview of current player mark on hover",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 30,
+        "b": 20,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D6",
+      "title": "Color Palette and Visual Tone",
+      "stakes": "LOW",
+      "winner": "a",
+      "winner_label": "Monochrome — black, white, gray",
+      "weighted_pct": 50,
+      "status": "deferred",
+      "by_choice": {
+        "a": 50,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D7",
+      "title": "Status Message Placement",
+      "stakes": "LOW",
+      "winner": "a",
+      "winner_label": "Above the board (status → board → button)",
+      "weighted_pct": 50,
+      "status": "deferred",
+      "by_choice": {
+        "a": 50,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    }
+  ],
+  "aggregate": {
+    "results": [
+      {
+        "dimension": "D1",
+        "winner": "a",
+        "weighted_pct": 100,
+        "status": "decided"
+      },
+      {
+        "dimension": "D2",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D3",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D4",
+        "winner": "b",
+        "weighted_pct": 70,
+        "status": "decided"
+      },
+      {
+        "dimension": "D5",
+        "winner": "c",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D6",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "deferred"
+      },
+      {
+        "dimension": "D7",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "deferred"
+      }
+    ],
+    "clarifications": [
+      {
+        "question": "File Structure",
+        "answer": "Single .html file with inline CSS and JS",
+        "weighted_pct": 100,
+        "provenance": "D1"
+      },
+      {
+        "question": "Board Responsiveness Strategy",
+        "answer": "Viewport-relative (vmin-based), capped at max size",
+        "weighted_pct": 70,
+        "provenance": "D4"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "FR-011",
+        "text": "The game MUST be delivered as a single .html file containing all markup, CSS, and JavaScript inline — no separate files.",
+        "provenance": "decided: 100% weighted (D1)"
+      },
+      {
+        "id": "FR-012",
+        "text": "The game board MUST use viewport-relative sizing (vmin-based units) for width and height, capped at a maximum pixel size, to ensure responsiveness across screen sizes.",
+        "provenance": "decided: 70% weighted (D4)"
+      }
+    ],
+    "deferred": [
+      "D2",
+      "D3",
+      "D5",
+      "D6",
+      "D7"
+    ]
+  },
   "delta_loops": 0,
-  "sessions": 1
+  "tasks": {
+    "T001": {
+      "id": "T001",
+      "issue": 4,
+      "pr": 5,
+      "branch": "task/T001",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T002": {
+      "id": "T002",
+      "issue": 6,
+      "pr": 7,
+      "branch": "task/T002",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T003": {
+      "id": "T003",
+      "issue": 8,
+      "pr": 9,
+      "branch": "task/T003",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T004": {
+      "id": "T004",
+      "issue": 10,
+      "pr": 11,
+      "branch": "task/T004",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T005": {
+      "id": "T005",
+      "issue": 12,
+      "pr": 13,
+      "branch": "task/T005",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T006": {
+      "id": "T006",
+      "issue": 14,
+      "pr": 15,
+      "branch": "task/T006",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T007": {
+      "id": "T007",
+      "issue": 16,
+      "pr": 17,
+      "branch": "task/T007",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T008": {
+      "id": "T008",
+      "issue": 18,
+      "pr": 19,
+      "branch": "task/T008",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T009": {
+      "id": "T009",
+      "issue": 20,
+      "pr": 21,
+      "branch": "task/T009",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T010": {
+      "id": "T010",
+      "issue": 22,
+      "pr": 23,
+      "branch": "task/T010",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T011": {
+      "id": "T011",
+      "issue": 24,
+      "pr": 25,
+      "branch": "task/T011",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T012": {
+      "id": "T012",
+      "issue": 26,
+      "pr": 27,
+      "branch": "task/T012",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T013": {
+      "id": "T013",
+      "issue": 28,
+      "pr": 29,
+      "branch": "task/T013",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T014": {
+      "id": "T014",
+      "issue": 30,
+      "pr": 31,
+      "branch": "task/T014",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T015": {
+      "id": "T015",
+      "issue": 32,
+      "pr": 33,
+      "branch": "task/T015",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T016": {
+      "id": "T016",
+      "issue": 34,
+      "pr": 35,
+      "branch": "task/T016",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T017": {
+      "id": "T017",
+      "issue": 36,
+      "pr": 37,
+      "branch": "task/T017",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T018": {
+      "id": "T018",
+      "issue": 38,
+      "pr": 39,
+      "branch": "task/T018",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T019": {
+      "id": "T019",
+      "issue": 40,
+      "branch": "task/T019",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    }
+  },
+  "sessions": 52,
+  "history": [
+    {
+      "from": "IDLE",
+      "to": "IDEA",
+      "at": "2026-06-10T23:20:59.153861Z",
+      "note": "idea issue #1"
+    },
+    {
+      "from": "IDEA",
+      "to": "INTERROGATED",
+      "at": "2026-06-10T23:23:47.199957Z",
+      "note": "questionnaire #3 (7 dims), feature PR #2"
+    },
+    {
+      "from": "INTERROGATED",
+      "to": "VOTED",
+      "at": "2026-06-10T23:25:43.389431Z",
+      "note": "7 dims tallied, deferred: D2,D3,D5,D6,D7"
+    },
+    {
+      "from": "VOTED",
+      "to": "SPEC_PATCHED",
+      "at": "2026-06-10T23:26:04.43207Z",
+      "note": "2 clarifications, 2 requirements, deferred: D2,D3,D5,D6,D7"
+    },
+    {
+      "from": "SPEC_PATCHED",
+      "to": "RATIFIED",
+      "at": "2026-06-10T23:27:55.274273Z",
+      "note": "PR #2 labeled ratified"
+    },
+    {
+      "from": "RATIFIED",
+      "to": "PLANNED",
+      "at": "2026-06-10T23:33:30.241995Z",
+      "note": "plan + tasks generated"
+    },
+    {
+      "from": "PLANNED",
+      "to": "ANALYZED",
+      "at": "2026-06-10T23:40:38.250329Z",
+      "note": "analyze passed"
+    },
+    {
+      "from": "ANALYZED",
+      "to": "BUILDING",
+      "at": "2026-06-10T23:40:38.309013Z",
+      "note": "dispatch started"
+    }
+  ]
 }
