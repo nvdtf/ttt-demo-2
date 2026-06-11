@@ -95,7 +95,7 @@
 - [x] T016 Implement vmin-based board sizing (width and height using `vmin` units) capped with `max-width` and `max-height` in pixels, ensuring the board remains usable at 320px viewport width (FR-012, SC-005), in the `<style>` block of `index.html`
 - [x] T017 *(non-normative, probe-default from D5)* Add subtle hover background highlight on empty cells when the game is not over using a CSS `:hover` selector scoped to non-occupied, non-game-over state, in `index.html`
 - [x] T018 [FR-013] Ensure grid cells are keyboard-accessible by using `<button>` elements (or adding `tabindex` and `keydown` handlers) so users can navigate and activate cells with Tab and Enter, in `index.html`
-- [ ] T019 Run all quickstart.md validation scenarios (Scenarios 1-8) by opening `index.html` in a browser and manually verifying each scenario passes
+- [x] T019 Run all quickstart.md validation scenarios (Scenarios 1-8) by opening `index.html` in a browser and manually verifying each scenario passes
 
 ---
 
